@@ -25,7 +25,7 @@ spec:
         app.kubernetes.io/instance: devfile-sample-dotnet60-basic-ikse
     spec:
       containers:
-      - image: quay.io/redhat-appstudio/user-workload:6fNZr-devfile-sample-dotnet60-basic-ikse
+      - image: quay.io/redhat-appstudio/user-workload@sha256:c703e374199c7b4ace9a0f18bef55b67d380feb831fe3293d6530f15674cb75d
         imagePullPolicy: Always
         name: main
         ports:
