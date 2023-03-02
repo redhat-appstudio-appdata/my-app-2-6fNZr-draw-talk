@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: devfile-sample-dotnet60-basic-ikse
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: devfile-sample-dotnet60-basic-ikse
+    app.kubernetes.io/part-of: my-app-2
+  name: devfile-sample-dotnet60-basic-ikse
+  namespace: pshivpuj-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devfile-dotnet-deploy
+      app.kubernetes.io/instance: devfile-sample-dotnet60-basic-ikse
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: devfile-dotnet-deploy
+        app.kubernetes.io/instance: devfile-sample-dotnet60-basic-ikse
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:6fNZr-devfile-sample-dotnet60-basic-ikse
+        imagePullPolicy: Always
+        name: main
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 300Mi
+          requests:
+            cpu: 10m
+            memory: 100Mi
+status: {}
